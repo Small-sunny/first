@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>终端状态</title>
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap-progressbar-2.0.0.min.css">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <style>
+        .pagination > li > a, .pagination > li > span{
+            border: none;
+            background-color:#fff;
+        }
+        hr{
+            margin: 0;
+        }
+        /*logo
+        .notification-menu{
+            float: right;
+        }
+        .notification-menu li{
+            float: right;
+        }
+        .logo-icon.text-center img{
+            width:36px;
+            border-radius: 2px;
+            vertical-align: middle;
+
+        }
+        .notification-menu .btn-default{
+            background-color:#424F63;
+            color:#65cea7;
+        }*/
+        .task_status span{
+            font-weight: bold;
+            color:#fff;
+        }
+        .btn.btn-info{
+            padding:3px 7px;
+        }
+        #myModal .modal-content{
+            margin-top: 70px;
+        }
+        .progress-bar.progress-bar-success{
+            padding-right:0;
+        }
+    </style>
+</head>
+
+<body class="sticky-header" onkeydown="keyLogin();">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>
+-->
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-laptop"></i> <span>终端信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li class="active"><a href="2.html">终端状态</a></li>
+                        <li ><a href="2-2.html">地图显示</a></li>
+                        <li ><a href="2-3.html">日志数据</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-dashboard"></i> <span>发送平台</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="5-1.html">当前任务</a></li>
+                        <li><a href="5-2.html">任务历史</a></li>
+                        <li><a href="5-3.html">可视化分析</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>运维管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="3.html">消息群发</a></li>
+                        <li><a href="3-2.html">远程开机</a></li>
+                        <li><a href="3-3.html">终端升级</a></li>
+                        <li><a href="3-4.html">远程协助</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="4.html">用户管理</a></li>
+                        <li><a href="4-2.html">绑定管理</a></li>
+                        <li><a href="4-3.html">院线注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <!--search end-->
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            <span id="uname">登录</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="4.html"><i class="fa fa-user"></i>用户管理</a></li>
+                            <!--<li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>-->
+                            <li><a onclick="loginOut();"><i class="fa fa-sign-out" ></i>退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3> 终端状态</h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">终端信息</a>
+                </li>
+                <li class="active">
+                    终端状态
+                </li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+        <hr />
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel panel-info">
+                        <header class="panel-heading">
+                            所有状态
+                            <!--<span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                             </span>-->
+                        </header>
+                        <div class="panel-body" >
+                            <div class="row" style="margin: 10px 0;">
+                                <form name="form3" role="form" class="col-lg-12">
+                                    <span>选择地区：</span>
+                                    <select name="selectp3" onchange="selectcityarea(&#39;selectp3&#39;,&#39;selectc&#39;,&#39;form3&#39;);">
+                                        <!--<option value="0" selected="">选择省份</option>
+                                        <option value="01">北京</option>
+                                        <option value="02">深圳</option>
+                                        <option value="03">上海</option>
+                                        <option value="04">重庆</option>
+                                        <option value="05">天津</option>
+                                        <option value="06">广东</option>
+                                        <option value="07">河北</option>
+                                        <option value="08">山西</option>
+                                        <option value="09">内蒙古</option>
+                                        <option value="10">辽宁</option>
+                                        <option value="11">吉林</option>
+                                        <option value="12">黑龙江</option>
+                                        <option value="13">江苏</option>
+                                        <option value="14">浙江</option>
+                                        <option value="15">安徽</option>
+                                        <option value="16">福建</option>
+                                        <option value="17">江西</option>
+                                        <option value="18">山东</option>
+                                        <option value="19">河南</option>
+                                        <option value="20">湖北</option>
+                                        <option value="21">湖南</option>
+                                        <option value="22">广西</option>
+                                        <option value="23">海南</option>
+                                        <option value="24">四川</option>
+                                        <option value="25">贵州</option>
+                                        <option value="26">云南</option>
+                                        <option value="27">西藏</option>
+                                        <option value="28">陕西</option>
+                                        <option value="29">甘肃</option>
+                                        <option value="30">青海</option>
+                                        <option value="31">宁夏</option>
+                                        <option value="32">新疆</option>
+                                        <option value="33">香港</option>
+                                        <option value="34">澳门</option>
+                                        <option value="35">台湾</option>-->
+                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span> 选择院线：</span>
+                                    <select name="" id="sel2">
+                                        <option value=""></option>
+                                       <!-- <option value="01">超级院线</option>
+                                        <option value="02">中影院线</option>
+                                        <option value="03">奥斯卡</option>
+                                        <option value="04">幸福蓝海</option>
+                                        <option value="05">DJS测试</option>-->
+                                    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span> 选择状态：</span>
+                                    <select name="" id="sel3">
+                                        <option value=""></option>
+                                        <option value="0">在线</option>
+                                        <option value="1">电源在线</option>
+                                        <option value="2">离线</option>
+                                    </select>
+                                    <span> 搜索ID：</span>
+                                    <input id="byId" type="text"  value="">
+                                    <input id="sbtn" type="button" class="btn btn-info" value="搜索" onclick="searchById();">
+                                    <!--<span>县/市：</span>
+                                    <select name="selectc">
+                                        &lt;!&ndash;<option value="0" selected="">选择城市</option>
+                                        <option value="0201">罗湖</option>
+                                        <option value="0202">福田</option>
+                                        <option value="0203">南山</option>
+                                        <option value="0204">盐田</option>
+                                        <option value="0205">宝安</option>
+                                        <option value="0206">龙岗</option>&ndash;&gt;
+                                    </select>-->
+                                </form>
+
+                            </div><hr />
+                            <table id="allStatus" class="table table-hover table-striped">
+                                <thead class="thead1">
+                                <tr>
+                                    <th>终端ID</th>
+                                    <th>所属影城</th>
+                                    <th>在线状态</th>
+                                    <th>任务状态</th>
+                                    <th>任务名</th>
+                                    <th>接收进度</th>
+                                    <th>百分比</th>
+                                    <th>操作</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!--<tr>
+                                    <td>1003011</td>
+                                    <td>平凉有壹家影院</td>
+                                    <td>接收影片中</td>
+                                    <td>xtjk2in1</td>
+                                    <td>DSD-V8.3</td>
+                                    <td>268644144984</td>
+                                    <td>102147785980</td>
+                                    <td><a href="2-1.html" class="btn btn-info">详情</a></td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                &times;
+                                            </button>
+                                            <div class=" form">
+                                                <form class="cmxform form-horizontal adminex-form" action="">
+                                                    <div class="form-group ">
+                                                        <label for="uname1" class="control-label col-lg-4">联系人姓名：</label>
+                                                        <div class="col-lg-6">
+                                                            <input class=" form-control" id="uname1"  type="text"  value=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label for="cph" class="control-label col-lg-4">联系电话：</label>
+                                                        <div class="col-lg-6">
+                                                            <input class=" form-control" id="cph"  type="text"  value=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label for="sid" class="control-label col-lg-4">卫星接收机唯一串号：</label>
+                                                        <div class="col-lg-6">
+                                                            <input class=" form-control"  id="sid" type="text" value=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label for="cowner" class="control-label col-lg-4">所属影城：</label>
+                                                        <div class="col-lg-6">
+                                                            <input class=" form-control" id="cowner"  type="text"  value=""/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label for="sel4" class="control-label col-lg-4">所属院线：</label>
+                                                        <div class="col-lg-6">
+                                                            <input class=" form-control" id="input1"  type="text"  value=""/>
+                                                            <select id="sel4" class=" form-control">
+                                                                <!--<option value="00">请选择</option>
+                                                                <option value="01">超级院线</option>
+                                                                <option value="02">中影院线</option>
+                                                                <option value="03">奥斯卡</option>
+                                                                <option value="04">幸福蓝海</option>
+                                                                <option value="05">DJS测试</option>
+                                                                <option value="06">南方新干线</option>
+                                                                <option value="07">万达</option>
+                                                                <option value="08">北京华夏联合院线</option>
+                                                                <option value="09">浙江时代</option>
+                                                                <option value="10">湖北银兴院线</option>
+                                                                <option value="11">天山院线</option>
+                                                                <option value="12">楚湘院线</option>
+                                                                <option value="13">新疆省库尔勒市汇嘉麦田影城</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-lg-4"></label>
+                                                        <div class="col-lg-6">
+                                                            <button class="btn btn-success" type="button" onclick="updateById();">提交</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal -->
+
+                        <ul id="footer" class="pagination">
+                            <!--<li><a href="">首页</a></li>
+                            <li class="disabled"><a href="">上一页</a></li>
+                            <li class="active"><a href="">1</a></li>
+                            <li class="disabled"><a href="">下一页</a></li>
+                            <li><a href="">尾页</a></li>
+                            <li id="count"></li>
+                            -->
+
+                        </ul>
+
+                    </section>
+
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/city.js"></script>
+<script src="js/baiduTemplate.js"></script>
+<script type="text/javascript" src="js/jquery.cookies.js"></script>
+
+<script id="t:table" type="text/html">
+    <@ console.log(content.length);@>
+    <@ for (var i = 0; i < content.length; i++){ @>
+        <@var ret;@>
+
+        <@var num=Number(content[i].received_size/content[i].total_size);@>
+
+        <@var strData = parseFloat(num)*100;@>
+        <@ret = strData.toFixed(2).toString();@>
+        <@if(isNaN(ret)||content[i].status==2){@>
+            <@ret=0;@>
+        <@}@>
+        <@ret=ret+"%";@>
+
+    <tr data-index='<@=i@>' class="mytr">
+        <td><@=content[i].serialID@></td>
+        <td><@=content[i].owner@></td>
+        <td>
+            <@if(content[i].status==0){@>
+            <span class="label label-success">在线</span>
+            <@}else if(content[i].status==1){@>
+            <span class="label label-warning">电源在线</span>
+            <@}else if(content[i].status==2){@>
+            <span class="label label-default">离线</span>
+            <@}@>
+
+        </td>
+        <td>
+
+            <@if(content[i].status==0){@>
+                <@if(content[i].task_status=="接收影片中"){@>
+                    <span class="label label-warning">接收影片中</span>
+                <@}else if(content[i].task_status=="接收完成"){@>
+                    <span class="label label-success">接收完成</span>
+                <@}else{@>
+                    <span class="label label-primary">空闲</span>
+                <@}@>
+            <@}else if(content[i].status==1){@>
+                <@if(content[i].task_status=="接收影片中"){@>
+                    <span class="label label-warning">接收影片中</span>
+                <@}else if(content[i].task_status=="接收完成"){@>
+                    <span class="label label-success">接收完成</span>
+                <@}else{@>
+                    <span class="label label-primary">空闲</span>
+                <@}@>
+            <@}else if(content[i].status==2){@>
+                <span class="label label-default">无状态</span>
+            <@}@>
+        </td>
+        <td><@=content[i].task_name@></td>
+
+        <!-- <td><@=content[i].total_size@></td>
+         <td><@=content[i].received_size@></td>this.point.percentage.toFixed(2)+"%"-->
+        <td>
+            <div class="progress progress-striped active">
+                <div id="progress" class="progress-bar progress-bar-success" role="progressbar"
+                       style="width: <@=ret@>;">
+                    <!--<span class="sr-only">40% 完成</span>-->
+                </div>
+            </div>
+        </td>
+        <td><@=ret@></td>
+        <td><a href="2-1.html?serialID=<@=content[i].serialID@>" class="btn btn-info" ><span class="glyphicon glyphicon-share"></span>&nbsp;详情</a></td>
+        <td>
+            <a id="revise" class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="theaterChain3(1,200,'<@=content[i].serialID@>')">
+                <span class="glyphicon glyphicon-edit"></span>修改</a>
+            <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <div class=" form">
+                                <form class="cmxform form-horizontal adminex-form" action="">
+                                    <div class="form-group ">
+                                        <label for="uname1" class="control-label col-lg-4">联系人姓名：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="uname1"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cph" class="control-label col-lg-4">联系电话：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="cph"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="sid" class="control-label col-lg-4">卫星接收机唯一串号：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control"  id="sid" type="text" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cowner" class="control-label col-lg-4">所属影城：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="cowner"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="sel4" class="control-label col-lg-4">所属院线：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="input1"  type="text"  value=""/>
+                                            <select id="sel4" class=" form-control">
+                                                &lt;!&ndash;<option value="00">请选择</option>
+			                                    <option value="01">超级院线</option>
+			                                    <option value="02">中影院线</option>
+			                                    <option value="03">奥斯卡</option>
+			                                    <option value="04">幸福蓝海</option>
+			                                    <option value="05">DJS测试</option>
+			                                    <option value="06">南方新干线</option>
+			                                    <option value="07">万达</option>
+			                                    <option value="08">北京华夏联合院线</option>
+			                                    <option value="09">浙江时代</option>
+			                                    <option value="10">湖北银兴院线</option>
+			                                    <option value="11">天山院线</option>
+			                                    <option value="12">楚湘院线</option>
+			                                    <option value="13">新疆省库尔勒市汇嘉麦田影城</option>&ndash;&gt;
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4"></label>
+                                        <div class="col-lg-6">
+                                            <button class="btn btn-success" type="button" onclick="updateById();">提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>&lt;!&ndash; /.modal-content &ndash;&gt;
+            </div>&lt;!&ndash; /.modal &ndash;&gt;
+        --></td>
+        <td><a class="btn btn-info" onclick="deleteById('<@=content[i].serialID@>')">删除</a></td>
+    </tr>
+    <@}@>
+
+</script>
+<script id="t1:table" type="text/html">
+    <@ console.log(content.length);@>
+    <option value=""></option>
+    <@ for (var i = 0; i < content.length; i++){ @>
+    <option value="<@=content[i].iD@>"><@=content[i].theaterChain@></option>
+    <@}@>
+
+</script>
+<script id="t2:table" type="text/html">
+    <tr>
+        <td><@=machine.serialID@></td>
+        <td><@=machine.owner@></td>
+        <td>
+            <@if(machine.status==0){@>
+            <span class="label label-success">在线</span>
+            <@}else if(machine.status==1){@>
+            <span class="label label-warning">电源在线</span>
+            <@}else if(machine.status==2){@>
+            <span class="label label-default">离线</span>
+            <@}@>
+
+        </td>
+        <td>
+            <@if(machine.status==0){@>
+                <@if(machine.task_status=="接收影片中"){@>
+                    <span class="label label-warning">接收影片中</span>
+                <@}else if(machine.task_status=="接收完成"){@>
+                    <span class="label label-success">接收完成</span>
+                <@}else{@>
+                    <span class="label label-primary">空闲</span>
+                <@}@>
+            <@}else if(machine.status==1){@>
+                <@if(machine.task_status=="接收影片中"){@>
+                    <span class="label label-warning">接收影片中</span>
+                <@}else if(machine.task_status=="接收完成"){@>
+                    <span class="label label-success">接收完成</span>
+                <@}else{@>
+                    <span class="label label-primary">空闲</span>
+                <@}@>
+            <@}else if(machine.status==2){@>
+                <span class="label label-default">无状态</span>
+            <@}@>
+
+        </td>
+        <td><@=machine.task_name@></td>
+        <td><@=machine.total_size@></td>
+        <td><@=machine.received_size@></td>
+        <td><a href="2-1.html?serialID=<@=machine.serialID@>" class="btn btn-info" ><span class="glyphicon glyphicon-share"></span>&nbsp;详情</a></td>
+        <td><a  class="btn btn-info" data-toggle="modal" data-target="#myModal" onclick="theaterChain3(1,200,'<@=machine.serialID@>')">
+            <span class="glyphicon glyphicon-edit"></span>&nbsp;修改</a>
+            <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <div class=" form">
+                                <form class="cmxform form-horizontal adminex-form" action="">
+                                    <div class="form-group ">
+                                        <label for="uname2" class="control-label col-lg-4">联系人姓名：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="uname2"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cph" class="control-label col-lg-4">联系电话：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="cph1"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="sid1" class="control-label col-lg-4">卫星接收机唯一串号：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control"  id="sid1" type="text" value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cowner1" class="control-label col-lg-4">所属影城：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="cowner1"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="sel5" class="control-label col-lg-4">所属院线：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="input2"  type="text"  value=""/>
+                                            <select id="sel5" class=" form-control">
+                                                &lt;!&ndash;<option value="00">请选择</option>
+			                                    <option value="01">超级院线</option>
+			                                    <option value="02">中影院线</option>
+			                                    <option value="03">奥斯卡</option>
+			                                    <option value="04">幸福蓝海</option>
+			                                    <option value="05">DJS测试</option>
+			                                    <option value="06">南方新干线</option>
+			                                    <option value="07">万达</option>
+			                                    <option value="08">北京华夏联合院线</option>
+			                                    <option value="09">浙江时代</option>
+			                                    <option value="10">湖北银兴院线</option>
+			                                    <option value="11">天山院线</option>
+			                                    <option value="12">楚湘院线</option>
+			                                    <option value="13">新疆省库尔勒市汇嘉麦田影城</option>&ndash;&gt;
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-4"></label>
+                                        <div class="col-lg-6">
+                                            <button class="btn btn-success" type="button" onclick="updateById();">提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>&lt;!&ndash; /.modal-content &ndash;&gt;
+            </div>&lt;!&ndash; /.modal &ndash;&gt;-->
+        </td>
+        <td><a class="btn btn-info" onclick="deleteById($('#byId').val());">删除</a></td>
+
+
+    </tr>
+</script>
+
+<script id="t3:table" type="text/html">
+    <@ console.log(content.length);@>
+    <option value="">请选择</option>
+    <@ for (var i = 0; i < content.length; i++){ @>
+    <option value="<@=content[i].iD@>">
+        <@=content[i].theaterChain@>
+        —— ID:<@=content[i].iD@>
+    </option>
+    <@}@>
+
+</script>
+
+
+<script type="text/javascript">
+    var bt=baidu.template;
+    var TheaterChain;
+    //var serialID;
+    function keyLogin(){
+        if (event.keyCode==13)  //回车键的键值为13
+            $('#sbtn').click(); //调用搜索按钮的事件
+    }
+    first("selectp3", "selectc", "form3", 0, 0);
+
+    var COOKIE_NAME = 'username';
+    var userName=$.cookie(COOKIE_NAME);
+    console.log(userName);
+
+    function checkLogin(){
+        if(userName != null){
+            $('#uname').html(userName);
+        }
+    }
+    checkLogin();
+    function theaterChain1(pageNum,size){
+        $.post('web/theaterChain/list?pageNum='
+            +pageNum+'&size='+size,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            console.log(result.content[5].iD);
+            if(result.errcode==0){
+                console.log(result.content.length);
+                var selHtml2=bt('t1:table',result);
+                $("#sel2").html("");
+                $("#sel2").html(selHtml2);
+            }else{
+                alert('请求错误！');
+            }
+        });
+    }
+    theaterChain1(1,100);
+    /*点击修改*/
+
+    /*$(function() {
+        $(".mytr").each(function(){//遍历tr
+            var tmp=$(this).children().eq(8);//修改按钮所在的td
+            var btn=tmp.children().eq(0);//修改按钮
+            console.log(tmp);
+            console.log(btn);
+            btn.on("click",function(){
+                var id=btn.parent().parent().children("td").get(0).innerHTML;
+                alert("id="+id);
+            });
+        });
+    });*/
+/*
+t.$dom.on('click', '.customer_management_update', function () {
+ var $target = $(this).closest('tr');
+ var index = $target.attr('data-index');
+ t.initUpdCustomer(t.data[index]);
+ });
+ */
+
+    /*function edit(){
+        theaterChain2(1,100);
+        var serialId = $(this).parents("tr").children("td:nth-child(1)").val();
+        console.log(serialId);
+        $.post("web/machine/searchById?serialId="+serialId,null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                //var serialId = $(this).parents("tr").children("td:nth-child(1)").val();
+            }else{
+                alert("请求错误！");
+            }
+        });
+
+
+        //console.log($(this).$dom);
+        //$(this).parent().parent();
+
+    }*/
+    /*function theaterChain2(pageNum,size,serialId){
+        $.post('web/theaterChain/list?pageNum='
+            +pageNum+'&size='+size,null,function(result){
+            var result = eval('('+result+')');
+            //console.log(result);
+            //console.log(result.content[5].iD);
+            if(result.errcode==0){
+                console.log(result.content.length);
+                var selHtml5=bt('t2:table',result);
+                $("#sel5").html("");
+                $("#sel5").html(selHtml5);
+                //seById();
+                //$(this)
+
+            }else{
+                alert('请求错误！');
+            }
+
+        });
+    }*/
+    //theaterChain2(1,100);
+    /*点击修改，获取对应id数据*/
+    var theaterChain,theaterChainId;
+    function theaterChain3(pageNum,size,serialId){
+        $.post('web/theaterChain/list?pageNum='
+            +pageNum+'&size='+size,null,function(result){
+            var result = eval('('+result+')');
+            //console.log(result);
+            //console.log(result.content[5].iD);
+            if(result.errcode==0){
+                console.log(result.content.length);
+                var selHtml3=bt('t3:table',result);
+                $("#sel4").html("");
+                $("#sel4").html(selHtml3);
+                //seById();
+                $.post("web/machine/searchById?serialId="+serialId,null,function(data){
+                    var result=eval('('+data+')');
+                    if(result.errcode=="0"){
+                        //alert("djixg");
+
+                        $("#sid").val(result.machine.serialID);
+                        $("#cowner").val(result.machine.owner);
+                        $("#cph").val(result.machine.phonenum);
+                        $("#uname1").val(result.machine.phonename);
+                        theaterChain=result.machine.theaterChain.theaterChain;
+                        theaterChainId=result.machine.theaterChain.iD;
+                        $("#input1").val(theaterChain);
+                        $("#sel4").on('focus',function () {
+                            $("#input1").remove();
+                        });
+                        /*var serialId = $(this).parent().parent().children("td:nth-child(1)").val();
+                         console.log(serialId);*/
+                    }else{
+                        alert("请求错误！");
+                    }
+                });
+            }else{
+                alert("错误原因："+result.msg);
+            }
+        });
+    }
+    /*function  seById(serialId) {
+        $.post("web/machine/searchById?serialId="+serialId,null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                alert("djixg");
+                $("#sid").val(result.machine.serialID);
+                $("#cowner").val(result.machine.owner);
+                $("#cph").val(result.machine.phonenum);
+                $("#uname1").val(result.machine.phonename);
+                $("#sel4 option:selected").val(result.machine.theaterChain);
+                //var serialId = $(this).parent().parent().children("td:nth-child(1)").val();
+                 //console.log(serialId);
+            }else{
+                alert("删除失败！");
+            }
+        });
+    }*/
+    function loginOut(){
+        $.post("web/user/logout",null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                $('#uname').html('');
+                window.location.href = 'login.html';
+            }else{
+                alert("请求错误！");
+            }
+        });
+    }
+    function deleteById(serialId){
+        //var serialId = $(this).parents("tr").children("td:nth-child(1)").val();
+        //console.log(serialId);
+        if(confirm("确认删除吗?")){
+            $.post("web/machine/deleteById?serialId="+serialId,null,function(data){
+                var result=eval('('+data+')');
+                if(result.errcode=="0"){
+                    console.log($(this));
+                    $(this).parent().parent().remove();
+                    alert('删除成功！');
+                    initdata(1,10);
+                }else{
+                    console.log(result.errcode);
+                    alert('删除失败！错误原因：'+result.msg);
+                }
+            })
+        }
+        else{
+            return ;
+        }
+    }
+    /*修改提交*/
+    function updateById() {
+        var serialID,owner,phonenum,phonename,parentID;
+        serialID=$("#sid").val();
+        owner=$("#cowner").val();
+        phonenum=$("#cph").val();
+        phonename=$("#uname1").val();
+        if($("#input1").val()){
+            parentID=theaterChainId;
+        }else if($("#sel4 option:selected").val()){
+            parentID=$("#sel4 option:selected").val();
+        }else{
+            alert('请选择所属院线！');
+        }
+
+        //powermodule=$("#sel4 option:selected").val();
+        $.post("web/machine/updateById?serialId="+serialID+"&owner="+owner+"&phonenum="+phonenum
+            +"&phonename="+phonename+"&parentID="+parentID,null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                alert('修改成功！');
+                window.location.reload();
+            }else{
+                alert('修改失败！错误原因：'+result.msg);
+            }
+        })
+    }
+    /*function updateById1() {
+        var serialID,owner,phonenum,phonename,parentID;
+        serialID=$("#sid1").val();
+        owner=$("#cowner1").val();
+        phonenum=$("#cph1").val();
+        phonename=$("#uname2").val();
+        if($("#input2").val()){
+            parentID=theaterChainId;
+        }else{
+            parentID=$("#sel5 option:selected").val();
+        }
+
+        //powermodule=$("#sel4 option:selected").val();
+        $.post("web/machine/updateById?serialId="+serialID+"&owner="+owner+"&phonenum="+phonenum
+            +"&phonename="+phonename+"&parentID="+parentID,null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                alert('修改成功！');
+                window.location.reload();
+            }else{
+                alert("请求错误！");
+            }
+        })
+    }*/
+</script>
+<script type="text/javascript" src="js/bootstrap-progressbar.js"></script>
+<script type="text/javascript">
+    var bt=baidu.template;
+    function initdata(pageNum,size){
+        $.post('web/machine/list?pageNum='+pageNum+'&size='+size,null,function(result){
+            var result = eval('('+result+')');
+            /*var num=Number(result.content[0].received_size/result.content[0].total_size);
+            console.log(num);
+            var strData = parseFloat(num)*100;
+            var ret = strData.toFixed(2).toString()+"%";
+            console.log(ret);
+            $("#pbar").css("data-transitiongoal",ret);*/
+            /*进度条*/
+            $('.progress .progress-bar').progressbar({display_text: 'fill'});
+            if(result.errcode==0){
+                var tableHtml=bt('t:table',result);
+                console.log(result);
+                console.log(result.content.length);
+                $("#allStatus tbody").html("");
+                $("#allStatus tbody").html(tableHtml);
+                //console.log(result.content[0].serialID);
+                //console.log(result.pageNum);
+                var pagecode = getpagecode(result.totalCount,result.pageNum,result.size);
+                if(result.content.length==0){
+                    $("#footer").html("暂无数据！");
+                }else{
+                    $("#footer").html("");
+                    $("#footer").html(pagecode);
+                    $("#count").text("总记录数："+result.totalCount);
+                }
+            }else{
+                alert('请求错误！');
+                window.location.href = 'login.html';
+            }
+        });
+    }
+    initdata(1,10);
+
+    function getpagecode(totalNum,currentPage,pageSize){
+        var totalPage=totalNum%pageSize==0?parseInt(totalNum/pageSize):parseInt(totalNum/pageSize)+1;
+        //		    	alert("totalpage"+totalPage+"currentPage"+currentPage);
+        var pageCode = "<ul class='pagination pagination-sm no-margin pull-right'>";
+        pageCode = pageCode + "<li><a pageNum='1' onclick='initdata(1,"+pageSize+")'>首页</a></li>";
+        if(currentPage==1){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>上一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage-1)+"' onclick='initdata("+(currentPage-1)+","+pageSize+")'>上一页</a></li>";
+        }
+        for(var i=currentPage-2;i<=currentPage+2;i++){
+            if(i<1||i>totalPage){
+                continue;
+            }
+            if(i==currentPage){
+                pageCode = pageCode + "<li class='active'><a href='#'>"+i+"</a></li>";
+            }else{
+                pageCode = pageCode + "<li><a pageNum='"+i+"' onclick='initdata("+i+","+pageSize+")'>"+i+"</a></li>";
+            }
+        }
+        if(currentPage==totalPage){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>下一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage+1)+"' onclick='initdata("+(currentPage+1)+","+pageSize+")'>下一页</a></li>";
+        }
+        pageCode = pageCode + "<li><a pageNum='"+totalPage+"' onclick='initdata("+totalPage+","+pageSize+")'>尾页</a></li>";
+        pageCode = pageCode + "</ul>";
+        if(totalNum == 0)
+            pageCode="";
+        return pageCode
+    }
+
+    /*按状态筛选*/
+    var sel3=$('#sel3');
+    //var pageNum=1,size=10;
+    //var status;
+//    var status=$('#sel3 option:selected').val();debugger
+
+
+//    sel3.change(ByStatus);
+    sel3.on('change',function () {
+        $('#sel2').val('');
+        $('#byId').val('');
+        console.log($(this).val());
+        ByStatus(1,10,$(this).val());
+    });
+    function ByStatus(pageNum,size,status){
+        //var status=$('#sel3 option:selected').val()
+        $.post('web/machine/searchByStatus?pageNum='+pageNum+'&size='+size+'&status='+status,null,function(result){
+            var result = eval('('+result+')');
+            //debugger;
+            //console.log(result);
+            if(result.errcode==0){
+                console.log(result.pageNum);
+                var tableHtml=bt('t:table',result);
+                $("#allStatus tbody").html("");
+                $("#allStatus tbody").html(tableHtml);
+                var pagecode = getpagecode1(result.totalCount,result.pageNum,result.size,result.status);
+                console.log(result.pageNum);
+                if(result.content.length==0){
+                    $("#footer").html("暂无数据！");
+                }else{
+                    $("#footer").html("");
+                    $("#footer").html(pagecode);
+                    $("#count").text("总记录数："+result.totalCount);
+                }
+            }else{
+                alert('请求错误！');
+            }
+        })
+    }
+
+    function getpagecode1(totalNum,currentPage,pageSize,status){
+        var totalPage=totalNum%pageSize==0?parseInt(totalNum/pageSize):parseInt(totalNum/pageSize)+1;
+        //		    	alert("totalpage"+totalPage+"currentPage"+currentPage);
+        var pageCode = "<ul class='pagination pagination-sm no-margin pull-right'>";
+        pageCode = pageCode + "<li><a pageNum='1' onclick='ByStatus(1,"+pageSize+","+$('#sel3 option:selected').val()+")'>首页</a></li>";
+        if(currentPage==1){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>上一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage-1)+"' onclick='ByStatus("+(currentPage-1)+","+pageSize+","+$('#sel3 option:selected').val()+")'>上一页</a></li>";
+        }
+        for(var i=currentPage-2;i<=currentPage+2;i++){
+            if(i<1||i>totalPage){
+                continue;
+            }
+            if(i==currentPage){
+                pageCode = pageCode + "<li class='active'><a href='#'>"+i+"</a></li>";
+            }else{
+                pageCode = pageCode + "<li><a pageNum='"+i+"' onclick='ByStatus("+i+","+pageSize+","+$('#sel3 option:selected').val()+")'>"+i+"</a></li>";
+            }
+        }
+        if(currentPage==totalPage){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>下一页</a></li>";
+        }else{
+            console.log(currentPage);
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage+1)+"' onclick='ByStatus("+(currentPage+1)+","+pageSize+","+$('#sel3 option:selected').val()+")'>下一页</a></li>";
+        }
+        pageCode = pageCode + "<li><a pageNum='"+totalPage+"' onclick='ByStatus("+totalPage+","+pageSize+","+$('#sel3 option:selected').val()+")'>尾页</a></li>";
+        pageCode = pageCode + "</ul>";
+        if(totalNum == 0)
+            pageCode="";
+        return pageCode;
+    }
+
+    /*按院线筛选*/
+    var sel2=$('#sel2');
+
+    sel2.on('change',function () {
+        console.log($(this).val());
+        $('#sel3').val('');
+        $('#byId').val('');
+        searchByCinema(1,10,$(this).val());
+    });
+    function searchByCinema(pageNum,size,TheaterChain){
+        //alert("下一页了！");
+        TheaterChain=$('#sel2 option:selected').val();
+        $.post('web/machine/searchByCinema?pageNum='+pageNum+'&size='+size+'&TheaterChain='+TheaterChain,null,function(result){
+            var result = eval('('+result+')');
+            //console.log(result);
+            if(result.errcode==0){
+                console.log(result.totalCount);
+                var tableHtml=bt('t:table',result);
+                $("#allStatus tbody").html("");
+                $("#allStatus tbody").html(tableHtml);
+                var pagecode = getpagecode2(result.totalCount,result.pageNum,result.size,TheaterChain);
+
+                if(result.content.length==0){
+                    $("#footer").html("暂无数据！");
+                }else{
+                    $("#footer").html("");
+                    $("#footer").html(pagecode);
+                    $("#count").text("总记录数："+result.totalCount);
+                }
+            }else{
+                alert('请求错误！');
+            }
+        })
+    }
+
+
+    function getpagecode2(totalNum,currentPage,pageSize,TheaterChain){
+        var totalPage=totalNum%pageSize==0?parseInt(totalNum/pageSize):parseInt(totalNum/pageSize)+1;
+        //		    	alert("totalpage"+totalPage+"currentPage"+currentPage);
+        var pageCode = "<ul class='pagination pagination-sm no-margin pull-right'>";
+        pageCode = pageCode + "<li><a pageNum='1' onclick='searchByCinema(1,"+pageSize+","+TheaterChain+")'>首页</a></li>";
+        if(currentPage==1){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>上一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage-1)+"' onclick='searchByCinema("+(currentPage-1)+","+pageSize+","+TheaterChain+")'>上一页</a></li>";
+        }
+        for(var i=currentPage-2;i<=currentPage+2;i++){
+            if(i<1||i>totalPage){
+                continue;
+            }
+            if(i==currentPage){
+                pageCode = pageCode + "<li class='active'><a href='#'>"+i+"</a></li>";
+            }else{
+                pageCode = pageCode + "<li><a pageNum='"+i+"' onclick='searchByCinema("+i+","+pageSize+","+TheaterChain+")'>"+i+"</a></li>";
+            }
+        }
+        if(currentPage==totalPage){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>下一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage+1)+"' onclick='searchByCinema("+(currentPage+1)+","+pageSize+","+TheaterChain+")'>下一页</a></li>";
+        }
+        pageCode = pageCode + "<li><a pageNum='"+totalPage+"' onclick='searchByCinema("+totalPage+","+pageSize+","+TheaterChain+")'>尾页</a></li>";
+        pageCode = pageCode + "</ul>";
+        if(totalNum == 0)
+            pageCode="";
+        console.log(totalNum);
+        return pageCode
+    }
+
+    /*按终端ID搜索*/
+    function searchById(){
+        $('#sel2').val('');
+        $('#sel3').val('');
+        var serialId=$('#byId').val();
+        $.post('web/machine/searchById?serialId='+serialId,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                $('#byId').val('');
+                //console.log(result.totalCount);
+                var tableHtml=bt('t2:table',result);
+                $("#allStatus tbody").html("");
+                $("#allStatus tbody").html(tableHtml);
+                //console.log(result.totalCount);
+                //console.log(result.pageNum);
+                var pagecode = getpagecode3(1,1,1);
+                console.log(result.machine);
+                if(result.machine==""){
+                    $("#footer").html("暂无数据！");
+                }else{
+                    $("#footer").html("");
+                    $("#footer").html(pagecode);
+                    $("#count").text("总记录数："+result.totalCount);
+                }
+            }else{
+                alert('请求错误！');
+            }
+        });
+    }
+    function getpagecode3(totalNum,currentPage,pageSize){
+        var totalPage=totalNum%pageSize==0?parseInt(totalNum/pageSize):parseInt(totalNum/pageSize)+1;
+        //		    	alert("totalpage"+totalPage+"currentPage"+currentPage);
+        var pageCode = "<ul class='pagination pagination-sm no-margin pull-right'>";
+        pageCode = pageCode + "<li><a pageNum='1' onclick='searchById(1,"+pageSize+")'>首页</a></li>";
+        if(currentPage==1){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>上一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage-1)+"' onclick='searchById("+(currentPage-1)+","+pageSize+")'>上一页</a></li>";
+        }
+        for(var i=currentPage-2;i<=currentPage+2;i++){
+            if(i<1||i>totalPage){
+                continue;
+            }
+            if(i==currentPage){
+                pageCode = pageCode + "<li class='active'><a href='#'>"+i+"</a></li>";
+            }else{
+                pageCode = pageCode + "<li><a pageNum='"+i+"' onclick='searchById("+i+","+pageSize+")'>"+i+"</a></li>";
+            }
+        }
+        if(currentPage==totalPage){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>下一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage+1)+"' onclick='searchById("+(currentPage+1)+","+pageSize+")'>下一页</a></li>";
+        }
+        pageCode = pageCode + "<li><a pageNum='"+totalPage+"' onclick='searchById("+totalPage+","+pageSize+")'>尾页</a></li>";
+        pageCode = pageCode + "</ul>";
+        if(totalNum == 0)
+            pageCode="";
+        return pageCode
+    }
+
+</script>
+</body>
+</html>

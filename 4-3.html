@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>院线注册</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <style type="text/css">
+  	.pagination > li > a, .pagination > li > span{
+  		border: none;
+  		background-color:#fff;
+  	}
+  	hr{
+  		margin: 0;
+  	}
+    /*logo
+    .notification-menu{
+        float: right;
+    }
+    .notification-menu li{
+        float: right;
+    }
+    .logo-icon.text-center img{
+        width:36px;
+        border-radius: 2px;
+        vertical-align: middle;
+
+    }
+    .notification-menu .btn-default{
+        background-color:#424F63;
+        color:#65cea7;
+    }*/
+  </style>
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+
+        <!--<div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>-->
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>-->
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>终端信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li ><a href="2.html">终端状态</a></li>
+                        <li><a href="2-2.html">地图显示</a></li>
+                        <li><a href="2-3.html">日志数据</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-dashboard"></i> <span>发送平台</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="5-1.html">当前任务</a></li>
+                        <li><a href="5-2.html">任务历史</a></li>
+                        <li><a href="5-3.html">可视化分析</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>运维管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="3.html">消息群发</a></li>
+                        <li ><a href="3-2.html">远程开机</a></li>
+                        <li><a href="3-3.html">终端升级</a></li>
+                        <li><a href="3-4.html">远程协助</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="4.html">用户管理</a></li>
+                        <li ><a href="4-2.html">绑定管理</a></li>
+                        <li class="active"><a href="4-3.html">院线注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <!--search end-->
+			<!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a  href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            <span id="uname">登录</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="user" class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="4.html" disabled="true"><i class="fa fa-user"></i>用户管理</a></li>
+                            <!--<li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>-->
+                            <li><a disabled="true" onclick="loginOut();"><i class="fa fa-sign-out"></i>退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>院线注册</h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">系统管理</a>
+                </li>
+                <li class="active">院线注册</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+		<hr />
+        <!--body wrapper start-->
+        <div class="wrapper">
+        	<div class="row" style="margin-bottom: 10px;">
+                <div class="col-md-3">
+                	<a href="4-3-1.html" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span>&nbsp;终端注册</a>
+                </div>
+        	</div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <section class="panel panel-info">
+                        <header class="panel-heading">院线列表</header>
+                        <div class="panel-body">
+                            <table id="ctab" class="table table-hover table-striped">
+                                <thead class="thead1">
+                                <tr>
+                                    <th>院线ID</th>
+                                    <th>院线名称</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!--<tr>
+                                    <td>10000</td>
+                                    <td>超级院线</td>
+                                </tr>
+                                <tr>
+                                    <td>10001</td>
+                                    <td>中影院线</td>
+                                </tr>
+                                <tr>
+                                    <td>10002</td>
+                                    <td>天山院线</td>
+                                </tr><tr>
+                                    <td>10003</td>
+                                    <td>超级院线</td>
+                                </tr><tr>
+                                    <td>10004</td>
+                                    <td>万达</td>
+                                </tr>
+                                <tr>
+                                    <td>10005</td>
+                                    <td>奥斯卡</td>
+                                </tr><tr>
+                                    <td>10006</td>
+                                    <td>幸福蓝海</td>
+                                </tr>
+                                <tr>
+                                    <td>10007</td>
+                                    <td>DJS测试</td>
+                                </tr>
+                                <tr>
+                                    <td>10008</td>
+                                    <td>南方新干线</td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+					<ul id="footer" class="pagination">
+                        <!--<li><a href="">首页</a></li>
+                        <li class="disabled"><a href="">上一页</a></li>
+                        <li class="active"><a href="">1</a></li>
+                        <li class="disabled"><a href="">下一页</a></li>
+                        <li><a href="">尾页</a></li>-->
+                    </ul>
+                    </section>
+                </div>
+            	<div class="col-lg-6">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">院线注册</div>
+                        <div class="panel-body">
+                            <div class=" form">
+                                <form class="cmxform form-horizontal adminex-form" id="commentForm">
+                                    <div class="form-group ">
+                                        <label for="cid" class="control-label col-lg-3">院线ID：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="cid" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cname" class="control-label col-lg-3">院线名称：</label>
+                                        <div class="col-lg-6">
+                                            <input class="form-control" id="cname" type="text" required />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-6">
+                                            <button class="btn btn-info" type="button" onclick="addtheaterChain();">立即注册</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/baiduTemplate.js"></script>
+<script type="text/javascript" src="js/jquery.cookies.js"></script>
+
+<script id="t1:table" type="text/html">
+    <@ console.log(content.length);@>
+    <@ for (var i = 0; i < content.length; i++){ @>
+    <tr>
+        <td><@=content[i].iD@></td>
+        <td><@=content[i].theaterChain@></td>
+    </tr>
+    <@}@>
+</script>
+<script>
+    var COOKIE_NAME = 'username';
+    var userName=$.cookie(COOKIE_NAME);
+    console.log(userName);
+    var machineIds=[];
+
+    var bt=baidu.template;
+    //院线列表
+    function initdata(pageNum,size){
+        $.post('web/theaterChain/list?pageNum='
+                +pageNum+'&size='+size,null,function(result){
+            var result = eval('('+result+')');
+            //theaterId=result.content[1].iD;
+            //console.log(theaterId);
+            console.log(result);
+            if(result.errcode==0){
+                console.log(result.content.length);
+                var selHtml=bt('t1:table',result);
+                $("#ctab tbody").html("");
+                $("#ctab tbody").html(selHtml);
+            	var pagecode = getpagecode(result.totalCount,result.pageNum,result.size);
+	            $("#footer").html("");
+	            $("#footer").html(pagecode);
+	            $("#count").text("总记录数："+result.totalCount);
+			}else{
+				alert('请求错误！');
+                window.location.href = 'login.html';
+			}
+        });
+    }
+    initdata(1,10);
+    
+    //院线注册
+    function addtheaterChain(){
+    	var cid=$("#cid").val();
+    	var cname=$("#cname").val();
+        if(cid == ""){
+            alert("院线ID不能为空！");
+            return;
+        }
+        if(cname == ""){
+            alert("院线名称不能为空！");
+            return;
+        }
+    	$.post('web/theaterChain/add?ID='+cid+'&theaterChainName='+cname,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                alert('操作成功！');
+            }else{
+                alert('操作失败！错误原因：'+result.msg);
+            }
+        });
+    }
+    /*function getmachineId(pageNum,size,machineId){
+    	$.post('web/machine/searchByCinema?pageNum='+pageNum+'&size='+size
+    			+'&TheaterChain='+machineId,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            //console.log(result.content[0].theaterChain);
+            for(var i=0;i<result.content.length;i++){
+            	machineIds.push(result.content[i].theaterChain.iD);
+            }
+            var commentIds=machineIds.join("_");
+            console.log(commentIds);
+            if(result.errcode==0){
+                alert('操作成功！');
+            }else{
+                alert('操作失败！');
+            }
+        });
+    }
+    getmachineId(1,5,10000);*/
+
+    function checkLogin(){
+        if(userName != null){
+            $('#uname').html(userName);
+        }
+    }
+    checkLogin();
+
+    function loginOut(){
+        $.post("web/user/logout",null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                $('#uname').html('登录');
+                window.location.href = 'login.html';
+            }else{
+                alert("请求错误！");
+            }
+        })
+    }
+    
+    function getpagecode(totalNum,currentPage,pageSize){
+        var totalPage=totalNum%pageSize==0?parseInt(totalNum/pageSize):parseInt(totalNum/pageSize)+1;
+        //		    	alert("totalpage"+totalPage+"currentPage"+currentPage);
+        var pageCode = "<ul class='pagination pagination-sm no-margin pull-right'>";
+        pageCode = pageCode + "<li><a pageNum='1' onclick='initdata(1,"+pageSize+")'>首页</a></li>";
+        if(currentPage==1){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>上一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage-1)+"' onclick='initdata("+(currentPage-1)+","+pageSize+")'>上一页</a></li>";
+        }
+        for(var i=currentPage-2;i<=currentPage+2;i++){
+            if(i<1||i>totalPage){
+                continue;
+            }
+            if(i==currentPage){
+                pageCode = pageCode + "<li class='active'><a href='#'>"+i+"</a></li>";
+            }else{
+                pageCode = pageCode + "<li><a pageNum='"+i+"' onclick='initdata("+i+","+pageSize+")'>"+i+"</a></li>";
+            }
+        }
+        if(currentPage==totalPage){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>下一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage+1)+"' onclick='initdata("+(currentPage+1)+","+pageSize+")'>下一页</a></li>";
+        }
+        pageCode = pageCode + "<li><a pageNum='"+totalPage+"' onclick='initdata("+totalPage+","+pageSize+")'>尾页</a></li>";
+        pageCode = pageCode + "</ul>";
+        if(totalNum == 0)
+            pageCode="";
+        return pageCode
+    }
+
+</script>
+</body>
+</html>

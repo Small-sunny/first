@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>详情</title>
+
+  <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/color.css">
+  <link href="css/style-responsive.css" rel="stylesheet">
+<style type="text/css">
+	.table.table-hover tbody tr td:nth-child(1){
+		font-weight: bold;
+	}
+	hr{
+  		margin: 0;
+  	}
+  	.serial>span,.task_status>span{
+  		font-weight: bold;
+  		color:#f00;
+  	}
+</style>
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>
+-->
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-laptop"></i> <span>终端信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li class="active"><a href="2.html">终端状态</a></li>
+                        <li><a href="2-2.html">地图显示</a></li>
+                        <li><a href="2-3.html">日志数据</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-dashboard"></i> <span>发送平台</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="5-1.html">当前任务</a></li>
+                        <li><a href="5-2.html">任务历史</a></li>
+                        <li><a href="5-3.html">可视化分析</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>运维管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="3.html">消息群发</a></li>
+                        <li><a href="3-2.html">远程开机</a></li>
+                        <li><a href="3-3.html">终端升级</a></li>
+                        <li><a href="3-4.html">远程协助</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="4.html">用户管理</a></li>
+                        <li><a href="4-2.html">绑定管理</a></li>
+                        <li><a href="4-3.html">院线注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+    
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+        <!--toggle button start-->
+        <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+        <!--toggle button end-->
+
+        <!--search start-->
+        <form class="searchform" action="index.html" method="post">
+            <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+        </form>
+        <!--search end-->
+        <!--notification menu start -->
+        <div class="menu-right">
+            <ul class="notification-menu">
+                <li>
+                    <a  href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <img src="images/photos/user-avatar.png" alt="" />
+                        <span id="uname">登录</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul id="user" class="dropdown-menu dropdown-menu-usermenu pull-right">
+                        <li><a href="4.html" disabled="true"><i class="fa fa-user"></i>用户管理</a></li>
+                        <!--<li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>-->
+                        <li><a disabled="true" onclick="loginOut();"><i class="fa fa-sign-out"></i>退出</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+               终端状态
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">终端信息</a>
+                </li>
+                <li>
+                    <a href="2.html">终端状态</a>
+                </li>
+                <li class="active">详情</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+<hr />
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel panel-info">
+                        <header class="panel-heading">详情
+                        <!--<span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>-->
+                        </header>
+                        <div class="panel-body">
+                        	<div class="row">
+	                            <div class="col-md-3">
+	                            	<a onclick="goback();" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回</a>
+	                                <a href="javascript:void(0);" class="btn btn-info" onclick="jumpTo(serialId);">
+	                                	<span class="glyphicon glyphicon-share-alt"></span>&nbsp;历史状态</a>
+	                            </div>
+                        	</div>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <table id="tab1" class="table table-hover table-striped ">
+                                <thead>
+                                <tr>
+                                    <th colspan="12"><h4>接收状态</h4></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            </div>
+                            <div class="col-lg-5">
+                            	<table id="tab2" class="table table-hover table-striped">
+		                            <thead>
+		                            <tr>
+		                                <th colspan="7"><h4>系统状态</h4></th>
+		                            </tr>
+		                            </thead>
+                            
+                        			<tbody>
+		                            <!--<tr>
+		                                <td>软件版本</td><td>DSD-V8.3</td>
+		                            </tr>
+		                            <tr>
+		                                <td>卫星信号</td><td>83:58</td>
+		                            </tr>   
+		                            <tr>
+		                                <td>信道速率</td><td>96</td>
+		                            </tr>    
+		                            <tr>
+		                                <td>负载速率</td><td>89</td>
+		                            </tr>    
+		                            <tr>
+		                                <td>CPU使用率</td><td>30</td>
+		                            </tr>    
+		                            <tr>
+		                                <td>内存使用</td><td>58240/2059636</td>
+		                            </tr>    
+		                            <tr>
+		                                <td>硬盘状态</td><td>OK</td>
+		                            </tr>-->
+		                            </tbody>
+                        		</table>
+                            </div>
+                        </div>
+                    </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+<script type="text/javascript" src="js/jquery.cookies.js"></script>
+<script src="js/baiduTemplate.js"></script>
+<script id="t:table" type="text/html">
+<tr>
+	<td>刷新时间</td>
+	<td ><@=machine.reportime@></td>
+</tr>
+<tr>
+	<td>接收机序列号</td>
+  		
+	<td class="serial"><span><@=machine.serialID@></span></td>
+</tr>
+<tr>
+	<td>开机时间</td>
+    <td><@=machine.powerOnTime@></td>
+</tr>
+<tr>
+	<td>开始接收时间</td>
+	<td><@=machine.taskStart@></td>
+</tr>
+<tr>
+	<td>任务编号</td>
+	<td><@=machine.task_id@></td>
+</tr>
+<tr>
+	<td>接收轮次</td>
+	<td><@=machine.round@></td>
+</tr>
+<tr>
+	<td>任务状态</td>
+	<td class="task_status"><span><@=machine.task_status@></span></td>
+</tr>
+<tr>
+	<td>任务名称</td>
+	<td><@=machine.task_name@></td>
+</tr>
+<tr>
+	<td>任务总字节数</td>
+	<td><@=machine.total_size@></td>
+</tr>
+<tr>
+	<td>已下载字节数</td>
+	<td><@=machine.received_size@></td>
+</tr>
+<tr>
+	<td>任务总共分包个数</td>
+	<td><@= machine.segmentCount@></td>
+</tr>
+<tr>
+	<td>当前丢失个数</td>
+	<td><@=machine.segmentLost@></td>
+</tr>
+</script>
+<script id="t2:table" type="text/html">
+    <tr>
+        <td>软件版本</td><td><@=machine.firmware@></td>
+    </tr>
+    <tr>
+        <td>卫星信号</td><td><@=machine.signalSQ@></td>
+    </tr>
+    <tr>
+        <td>信道速率</td><td><@=machine.channelSpeed@></td>
+    </tr>
+    <tr>
+        <td>负载速率</td><td><@=machine.dataSpeed@></td>
+    </tr>
+    <tr>
+        <td>CPU使用率</td><td><@=machine.cpu@></td>
+    </tr>
+    <tr>
+        <td>内存使用</td><td><@=machine.mem@></td>
+    </tr>
+    <tr>
+        <td>硬盘状态</td><td><@=machine.disk@></td>
+    </tr>
+
+</script>
+<script type="text/javascript">
+	var bt=baidu.template;
+	var serialId;
+    var COOKIE_NAME = 'username';
+    var userName=$.cookie(COOKIE_NAME);
+    console.log(userName);
+    function getQueryString(name) {  
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+        var r = window.location.search.substr(1).match(reg);  
+        if (r != null) return unescape(r[2]);  
+        return null;  
+    }  
+    
+	
+	function initdata(serialId){
+       $.post('web/machine/searchById?serialId='+serialId,null,function(result){
+            var result = eval('('+result+')');
+            //serialId=result.machine.serialID;
+            console.log(serialId);
+            console.log(result);
+            if(result.errcode==0){
+                var tableHtml=bt('t:table',result);
+                var tableHtml2=bt('t2:table',result);
+                $('#uname').html(userName);
+                $("#tab1 tbody").html("");
+                $("#tab1 tbody").html(tableHtml);
+                $("#tab2 tbody").html("");
+                $("#tab2 tbody").html(tableHtml2);
+            }else{
+                alert('请求错误！');
+            }
+        });
+    }
+
+		function getdata(){
+
+	   	serialId = getQueryString("serialId");
+	   	//alert(window.location.href);
+	   	//alert(serialId);
+	    initdata(serialId);
+	    }
+		getdata();
+		
+		function jumpTo(){
+			window.location.href='2-1-1.html?serialId='+serialId;
+		}
+    function goback(){
+        window.location.href='2.html?serialId='+serialId;
+    }
+</script>
+</body>
+</html>

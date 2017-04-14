@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+    <title>终端注册</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <style type="text/css">
+  	.pagination > li > a, .pagination > li > span{
+  		border: none;
+  		background-color:#fff;
+  	}
+  	hr{
+  		margin: 0;
+  	}
+  	select {
+			/*Chrome和Firefox里面的边框是不一样的，所以复写了一下*/
+			/*border: solid 1px #000;*/
+			/*很关键：将默认的select选择框样式清除*/
+			appearance:none;
+			-moz-appearance:none;
+			-webkit-appearance:none;
+			/*min-width:400px;*/
+			/*留出一点位置，避免被文字覆盖*/
+			/*padding-right: 14px;*/
+		}
+		/*清除ie的默认选择框样式清除，隐藏下拉箭头
+		select::-ms-expand { display: none; }*/
+    /*logo
+    .notification-menu{
+        float: right;
+    }
+    .notification-menu li{
+        float: right;
+    }
+    .logo-icon.text-center img{
+        width:36px;
+        border-radius: 2px;
+        vertical-align: middle;
+
+    }
+    .notification-menu .btn-default{
+        background-color:#424F63;
+        color:#65cea7;
+    }*/
+  </style>
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+        <!--<div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>-->
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>-->
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>终端信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li ><a href="2.html">终端状态</a></li>
+                        <li><a href="2-2.html">地图显示</a></li>
+                        <li><a href="2-3.html">日志数据</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-dashboard"></i> <span>发送平台</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="5-1.html">当前任务</a></li>
+                        <li><a href="5-2.html">任务历史</a></li>
+                        <li><a href="5-3.html">可视化分析</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>运维管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="3.html">消息群发</a></li>
+                        <li ><a href="3-2.html">远程开机</a></li>
+                        <li><a href="3-3.html">终端升级</a></li>
+                        <li><a href="3-4.html">远程协助</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="4.html">用户管理</a></li>
+                        <li ><a href="4-2.html">绑定管理</a></li>
+                        <li class="active"><a href="4-3.html">院线注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <!--search end-->
+			<!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a  href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            <span id="uname">登录</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="user" class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="4.html" disabled="true"><i class="fa fa-user"></i>用户管理</a></li>
+                            <!--<li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>-->
+                            <li><a disabled="true" onclick="loginOut();"><i class="fa fa-sign-out"></i>退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>院线注册</h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">系统管理</a>
+                </li>
+                <li>
+                    <a href="4-3.html">院线注册</a>
+                </li>
+                <li class="active">终端注册</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+<hr />
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">终端注册</div>
+                        <div class="panel-body">
+                        	<div class="row">
+	                            <div class="col-md-3">
+	                            	<a href="4-3.html" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回</a>
+	                            </div>
+                        	</div><br />
+                            <div class=" form">
+                                <form class="cmxform form-horizontal adminex-form" action="">
+                                    <div class="form-group ">
+                                        <label for="uname1" class="control-label col-lg-2">联系人姓名：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="uname1"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cph" class="control-label col-lg-2">联系电话：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="cph"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="sid" class="control-label col-lg-2">卫星接收机唯一串号：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control"  id="sid" type="text"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cowner" class="control-label col-lg-2">所属影城：</label>
+                                        <div class="col-lg-6">
+                                            <input class=" form-control" id="cowner"  type="text"  value=""/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="sel1" class="control-label col-lg-2">所属院线：</label>
+                                        <div class="col-lg-6">
+			                                <select id="sel1" class=" form-control">
+			                                	<!--<option value="00">请选择</option>
+			                                    <option value="01">超级院线</option>
+			                                    <option value="02">中影院线</option>
+			                                    <option value="03">奥斯卡</option>
+			                                    <option value="04">幸福蓝海</option>
+			                                    <option value="05">DJS测试</option>
+			                                    <option value="06">南方新干线</option>
+			                                    <option value="07">万达</option>
+			                                    <option value="08">北京华夏联合院线</option>
+			                                    <option value="09">浙江时代</option>
+			                                    <option value="10">湖北银兴院线</option>
+			                                    <option value="11">天山院线</option>
+			                                    <option value="12">楚湘院线</option>
+			                                    <option value="13">新疆省库尔勒市汇嘉麦田影城</option>-->
+			                                </select>
+                                            <!--<input class=" form-control" id="cname" minlength="2" type="text" required />
+                                        -->
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label class="control-label col-lg-2">是否有电源模块：</label>
+                                        <div class="col-lg-6">
+                                            <select id="power" class=" form-control"> 
+                                            	<option value="00">请选择</option>
+                                            	<option value="0">是</option>
+                                            	<option value="1">否</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-6">
+                                            <button class="btn btn-info" type="button" onclick="addMachine();">立即注册</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/baiduTemplate.js"></script>
+<script type="text/javascript" src="js/jquery.cookies.js"></script>
+<script id="t:table" type="text/html">
+    <@ console.log(content.length);@>
+    <option value="">请选择</option>
+    <@ for (var i = 0; i < content.length; i++){ @>
+    <option value="<@=content[i].iD@>">
+    	<@=content[i].theaterChain@>
+    	—— ID:<@=content[i].iD@>
+    </option>
+    <@}@>
+
+</script>
+<script>
+    var COOKIE_NAME = 'username';
+    var userName=$.cookie(COOKIE_NAME);
+    console.log(userName);
+    var machineIds=[];
+
+    var bt=baidu.template;
+
+    function theaterChain(pageNum,size){
+        $.post('web/theaterChain/list?pageNum='
+                +pageNum+'&size='+size,null,function(result){
+            var result = eval('('+result+')');
+            //console.log(result);
+            //console.log(result.content[5].iD);
+            if(result.errcode==0){
+                console.log(result.content.length);
+                var selHtml=bt('t:table',result);
+                
+                $("#sel1").html("");
+                $("#sel1").html(selHtml);
+            }else{
+                alert('请求错误！');
+            }
+        });
+    }
+    theaterChain(1,100);
+    /*注册终端*/
+    function addMachine(){
+    	var serialID,owner,phonenum,phonename,powermodule,sel1;
+        serialID=$("#sid").val();
+        owner=$("#cowner").val();
+        phonenum=$("#cph").val();
+        phonename=$("#uname1").val();
+        powermodule=$("#power option:selected").val();
+    	sel1=$("#sel1 option:selected").val();
+        if(phonename==''){
+            alert('联系人姓名不能为空!');
+            return;
+        }
+        if(phonenum==''){
+            alert('联系人电话不能为空!');
+            return;
+        }
+    	if(serialID==''){
+    	    alert('接收机id不能为空!');
+    	    return;
+        }
+        if(owner==''){
+            alert('所属影城不能为空!');
+            return;
+        }
+        if(sel1==''){
+            alert('所属院线不能为空!');
+            return;
+        }
+        if(powermodule==''){
+            alert('请选择是否有电源模块!');
+            return;
+        }
+        $.post('web/machine/add?serialID='+serialID+'&owner='+owner+'&phonenum=' +phonenum
+                +'&phonename='+phonename+'&powermodule='+powermodule+'&parentID='+sel1,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                alert('注册成功！');
+                window.location.href = '2.html';
+            }else{
+                alert('操作失败！错误原因：'+result.msg);
+            }
+        });
+        //debugger;
+    }
+    /*//院线注册
+    function addtheaterChain(){
+    	var id=$("#cid").val();
+    	var cname=$("#cname").val();
+    	$.post('web/theaterChain/add?ID='+id+'&theaterChainName='+cname,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                alert('操作成功！');
+            }else{
+                alert('请求错误！');
+				window.location.href = 'login.html';
+            }
+        });
+    }
+*/
+    function checkLogin(){
+        if(userName != null){
+            $('#uname').html(userName);
+        }
+    }
+    checkLogin();
+    function loginOut(){
+        $.post("web/user/logout",null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                $('#uname').html('登录');
+                window.location.href = 'login.html';
+            }else{
+                alert("请求错误！");
+            }
+        })
+    }
+</script>
+</body>
+</html>

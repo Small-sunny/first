@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>LBS地图显示</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <style type="text/css">
+        html,body{margin:0;padding:0;}
+        .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+    hr{
+  		margin: 0;
+  	}
+        /*logo
+        .notification-menu{
+            float: right;
+        }
+        .notification-menu li{
+            float: right;
+        }
+        .logo-icon.text-center img{
+            width:36px;
+            border-radius: 2px;
+            vertical-align: middle;
+
+        }
+        .notification-menu .btn-default{
+            background-color:#424F63;
+            color:#65cea7;
+        }*/
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=I6fIIBboPRvXuvIDMkGORAL7"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>-->
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-laptop"></i> <span>终端信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li ><a href="2.html">终端状态</a></li>
+                        <li class="active"><a href="2-2.html">地图显示</a></li>
+                        <li><a href="2-3.html">日志数据</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-dashboard"></i> <span>发送平台</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="5-1.html">当前任务</a></li>
+                        <li><a href="5-2.html">任务历史</a></li>
+                        <li><a href="5-3.html">可视化分析</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>运维管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="3.html">消息群发</a></li>
+                        <li><a href="3-2.html">远程开机</a></li>
+                        <li><a href="3-3.html">终端升级</a></li>
+                        <li><a href="3-4.html">远程协助</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="4.html">用户管理</a></li>
+                        <li><a href="4-2.html">绑定管理</a></li>
+                        <li><a href="4-3.html">院线注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <!--search end-->
+			<!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a  href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            <span id="uname">登录</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="user" class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="4.html" disabled="true"><i class="fa fa-user"></i>用户管理</a></li>
+                            <!--<li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>-->
+                            <li><a disabled="true" onclick="loginOut();"><i class="fa fa-sign-out"></i>退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                LBS地图显示
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">终端信息</a>
+                </li>
+                <li class="active">LBS地图显示</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+<hr />
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel panel-info">
+                        <header class="panel-heading">地图显示</header>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel-default">
+                                        <div class="panel-body">
+                                            <!--百度地图容器-->
+                                            <div style="min-width:600px;min-height:600px;" id="allMap"></div>
+<!--<div id="test"></div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+    </div>
+    <!-- main content end-->
+</section>
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/city.js"></script>
+<script type="text/javascript" src="js/jquery.cookies.js"></script>
+<script type="text/javascript">
+    var COOKIE_NAME = 'username';
+    var userName=$.cookie(COOKIE_NAME);
+    console.log(userName);
+
+    function checkLogin(){
+        if(userName != null){
+            $('#uname').html(userName);
+        }
+    }
+    checkLogin();
+
+    function loginOut(){
+        $.post("web/user/logout",null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode==0){
+                $('#uname').html('登录');
+                window.location.href = 'login.html';
+            }else{
+                alert("请求错误！");
+            }
+        })
+
+    }
+    function initdata(){
+        $.post('web/machine/list',null,function(result){
+			var result = eval('('+result+')');
+			console.log(result);
+			console.log(result.content[0].status);
+			// 百度地图API功能
+			var map = new BMap.Map("allMap");
+			var point = new BMap.Point(113.417314,32.531677);
+			map.centerAndZoom(point, 5); 
+			//标注图标
+			var icon1=new BMap.Icon('images/d1.png', new BMap.Size(32, 32),{anchor: new BMap.Size(20, 30)});
+				
+			var icon2=new BMap.Icon('images/d2.png', new BMap.Size(32, 32),{anchor: new BMap.Size(20, 30)});	
+			//控件
+			var navigationControl = new BMap.NavigationControl();//创建平移缩放控件  
+			map.addControl(navigationControl);//添加到地图  
+			var scaleControl = new BMap.ScaleControl();//这里创建比例尺控件  
+			map.addControl(scaleControl);//添加到地图  
+			var overviewMapControl = new BMap.OverviewMapControl();//创建缩略图控件，注意这个控件默认是在地图右下角，并且是缩着的  
+			map.addControl(overviewMapControl);//添加到地图  
+			var mapTypeControl = new BMap.MapTypeControl();//创建地图类型控件  
+			map.addControl(mapTypeControl);  
+			map.enableScrollWheelZoom(true);
+			var icon;
+			for (var i = 0; i <result.content.length;i++) {
+				if(result.content[i].status==0||result.content[i].status==1){
+					icon=icon1;
+				}
+				if(result.content[i].status==2){
+					icon=icon2;
+				}
+				var point = new BMap.Point(result.content[i].longitude,result.content[i].latitude);
+				addMarker(point,result.content[i].serialID,icon);
+			}
+			
+			// 编写自定义函数,创建标注
+			function addMarker(point,serialId,iconx){
+			var marker = new BMap.Marker(point,{icon:iconx});
+			map.addOverlay(marker);
+			marker.addEventListener("click", function(){ 
+			$.post("web/machine/searchById?serialId="+serialId,null,
+			    function(result){
+			    	console.log(result);
+			    	var result = eval('('+result+')');
+			    	console.log(result);
+			    	var str='';
+			    	if(result.errcode==0){
+			    	var sContent="<h4 style='margin:0 0 5px 0;padding:0.2em 0'>卫星接收机："+result.machine.serialID+"</h4>"+
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>软件版本："+result.machine.firmware+"</p>"+
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>在线状态："+result.machine.status+"</p>"+
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>CPU使用："+result.machine.cpu+"</p>"+ 
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>内存使用："+result.machine.issuer+"</p>"+ 
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>当前温度："+result.machine.temp+"</p>"+ 
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>硬盘状态："+result.machine.disk+"</p>"+ 
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>卫星信号："+result.machine.signalSQ+"</p>"+ 
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>任务编号："+result.machine.task_id+"</p>"+ 
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>开始接收时间："+result.machine.taskStart+"</p>"+ 
+								 "<p style='margin:0;line-height:1.5;font-size:14px;'>任务状态："+result.machine.task_status+"</p>"+ 
+								 "<p style='margin-bottom:8px;line-height:1.5;font-size:14px;'>任务名称："+result.machine.task_name+"</p>";
+
+			    	/*var sContent="<h4>卫星接收机："+result.machine.serialID+
+			    				 "</h4><br/>软件版本："+result.machine.firmware+
+								 "<br/>CPU使用："+
+								 result.machine.cpu
+								+"<br/>内存使用："+result.machine.issuer
+								+"<br/>当前温度："+result.machine.temp
+								+"<br/>硬盘状态："+result.machine.disk
+								+"<br/>卫星信号："+result.machine.signalSQ
+								+"<br/>任务编号："+result.machine.task_id
+								+"<br/>开始接收时间："+result.machine.taskStart
+								+"<br/>任务状态："+result.machine.task_status
+								+"<br/>任务名称："+result.machine.task_name
+	        					;*/
+					console.log(sContent);
+					//var text=$("#test").html(sContent);
+					//list="<span>dsadasdasdas</span>"
+					//sContent = sContent.replace(/<.*?>/ig,"");
+					var fourOpts = { 
+						width:200,
+						height:330
+					} 
+					sContent=sContent+"<a href='2-1.html?serialID="+result.machine.serialID+
+										"' style='padding:2px 6px;' class='btn btn-info'>详情</a>"
+				    var infoWindow = new BMap.InfoWindow(sContent,fourOpts);
+				    map.openInfoWindow(infoWindow,point);
+			    }else{
+			    	alert('请求错误！');
+					window.location.href = 'login.html';
+			    }
+			    });
+			});
+			}
+			//var point = new BMap.Point(103.698923,36.312287);
+			//addMarker(point,1003244);
+			
+			
+		});
+    }
+    initdata();
+</script>
+</body>
+</html>

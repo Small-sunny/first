@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>远程开机</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+  	.pagination > li > a, .pagination > li > span{
+  		border: none;
+  		background-color:#fff;
+  	}
+  	hr{
+  		margin: 0;
+  	}
+    /*logo
+    .notification-menu{
+        float: right;
+    }
+    .notification-menu li{
+        float: right;
+    }
+    .logo-icon.text-center img{
+        width:36px;
+        border-radius: 2px;
+        vertical-align: middle;
+
+    }
+    .notification-menu .btn-default{
+        background-color:#424F63;
+        color:#65cea7;
+    }*/
+  	</style>
+</head>
+
+<body class="sticky-header" onkeydown="keyLogin();">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+
+        <!--<div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>-->
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>-->
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>终端信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li ><a href="2.html">终端状态</a></li>
+                        <li><a href="2-2.html">地图显示</a></li>
+                        <li><a href="2-3.html">日志数据</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-dashboard"></i> <span>发送平台</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="5-1.html">当前任务</a></li>
+                        <li><a href="5-2.html">任务历史</a></li>
+                        <li><a href="5-3.html">可视化分析</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-book"></i> <span>运维管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="3.html">消息群发</a></li>
+                        <li class="active"><a href="3-2.html">远程开机</a></li>
+                        <li><a href="3-3.html">终端升级</a></li>
+                        <li><a href="3-4.html">远程协助</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="4.html">用户管理</a></li>
+                        <li><a href="4-2.html">绑定管理</a></li>
+                        <li><a href="4-3.html">院线注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <!--search end-->
+			<!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a  href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            <span id="uname">登录</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="user" class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="4.html" disabled="true"><i class="fa fa-user"></i>用户管理</a></li>
+                            <!--<li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>-->
+                            <li><a disabled="true" onclick="loginOut();"><i class="fa fa-sign-out"></i>退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                远程开关机
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">运维管理</a>
+                </li>
+                <li class="active">远程开机</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+<hr />
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel panel-info">
+                        <header class="panel-heading">
+                            		远程开机
+                            <!--<span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                             </span>-->
+                        </header>
+
+                        <div class="panel-body">
+                            <a id="powerOn" class="btn btn-info" onclick="powerOn();">
+                            	<span class="glyphicon glyphicon-off"></span>&nbsp;开机</a>
+                            <p>
+                            <span> 搜索终端ID：</span>
+                            <input id="byId" type="text"  value="">
+                            <input id="sbtn" type="button" class="btn btn-info" value="搜索" onclick="searchById();">
+                            </p>
+                            <table id="on" class="table table-hover table-striped">
+                                <thead class="thead1" id="hchk">
+                                <tr>
+                                    <th><input id="chk" type="checkbox"/>全选</th>
+                                    <th>终端ID</th>
+                                    <th>在线状态</th>
+                                    <th>所属影城</th>
+                                    <th>刷新时间</th>
+                                </tr>
+                                </thead>
+                                <tbody id="bchk">
+                                </tbody>
+                            </table>
+                        <hr />	
+                        </div>
+                        
+					<ul id="footer" class="pagination">
+                        <!--<li><a href="">首页</a></li>
+                        <li class="disabled"><a href="">上一页</a></li>
+                        <li class="active"><a href="">1</a></li>
+                        <li class="disabled"><a href="">下一页</a></li>
+                        <li><a href="">尾页</a></li>-->
+                    </ul>
+                    </section>
+                </div>
+            </div>
+        
+        <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel panel-info">
+                        <header class="panel-heading">
+                            		远程关机
+                            <!--<span class="tools pull-right">
+                                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                                <a href="javascript:;" class="fa fa-times"></a>
+                             </span>-->
+                        </header>
+
+                        <div class="panel-body">
+                            <a id="powerOff" class="btn btn-info" onclick="powerOff();">
+                            	<span class="glyphicon glyphicon-off"></span>&nbsp;关机</a>
+                            <p>
+                                <span> 搜索终端ID：</span>
+                                <input id="byId1" type="text"  value="">
+                                <input id="sbtn1" type="button" class="btn btn-info" value="搜索" onclick="searchById1();" onkeydown="keyLogin();">
+                            </p>
+                            <table id="off" class="table table-hover table-striped">
+                                <thead class="thead1" id="hchk1">
+                                <tr>
+                                    <th ><input id="chk1" type="checkbox"/>全选</th>
+                                    <th>终端ID</th>
+                                    <th>在线状态</th>
+                                    <th>所属影城</th>
+                                    <th>刷新时间</th>
+                                </tr>
+                                </thead>
+                                <tbody id="stab">
+                                </tbody>
+                            </table>
+                        <hr />	
+                        </div>
+                        
+					<ul id="footer1" class="pagination">
+                        <!--<li><a href="">首页</a></li>
+                        <li class="disabled"><a href="">上一页</a></li>
+                        <li class="active"><a href="">1</a></li>
+                        <li class="disabled"><a href="">下一页</a></li>
+                        <li><a href="">尾页</a></li>-->
+                    </ul>
+                    </section>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    <!-- main content end-->
+</section>
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/baiduTemplate.js"></script>
+<script type="text/javascript" src="js/jquery.cookies.js"></script>
+<script id="t:table" type="text/html">
+    <@ console.log(content.length);@>
+    <@ for (var i = 0; i < content.length; i++){ @>
+        <tr>
+            <td><input type="checkbox" value="<@=content[i].serialID@>"/></td>
+            <td><@=content[i].serialID@></td>
+            <td>
+	    		<span class="label label-warning">电源在线</span>
+	    	</td>
+            <td><@=content[i].owner@></td>
+            <td><@=content[i].reportime@></td>
+        </tr>
+    <@}@>
+
+</script>
+<script id="t2:table" type="text/html">
+    <tr>
+        <td><input type="checkbox" value="<@=machine.serialID@>"/></td>
+        <td><@=machine.serialID@></td>
+        <td>
+            <@if(machine.status==1){@>
+                <span class="label label-warning">电源在线</span>
+            <@}@>
+        </td>
+        <td><@=machine.owner@></td>
+        <td><@=machine.reportime@></td>
+    </tr>
+</script>
+<script id="t1:table" type="text/html">
+    <@ console.log(content.length);@>
+    <@ for (var i = 0; i < content.length; i++){ @>
+        <tr>
+            <td><input type="checkbox" value="<@=content[i].serialID@>"/></td>
+            <td><@=content[i].serialID@></td>
+            <td>
+	    		<span class="label label-success">在线</span>
+	    	</td>
+            <td><@=content[i].owner@></td>
+            <td><@=content[i].reportime@></td>
+        </tr>
+    <@}@>
+
+</script>
+<script id="t3:table" type="text/html">
+    <tr>
+        <td><input type="checkbox" value="<@=machine.serialID@>"/></td>
+        <td><@=machine.serialID@></td>
+        <td>
+            <@if(machine.status==0){@>
+            <span class="label label-warning">在线</span>
+            <@}@>
+        </td>
+        <td><@=machine.owner@></td>
+        <td><@=machine.reportime@></td>
+    </tr>
+
+</script>
+<script type="text/javascript">
+    //$('#header').load('header.html');
+    var bt=baidu.template;
+    var serialId;
+    function keyLogin(){
+        if (event.keyCode==13){//回车键的键值为13
+            if($('#byId').val()){
+                $("#sbtn").click();
+            }else if($('#byId1').val()){
+                $("#sbtn1").click();
+            }
+        }    //调用搜索按钮的点击事件
+    }
+    //first("selectp3", "selectc", "form3", 0, 0);
+    
+    var machineIds=[];
+    var commentIds;
+
+    var COOKIE_NAME = 'username';
+    var userName=$.cookie(COOKIE_NAME);
+    console.log(userName);
+    /*开机*/
+    function chk(){
+        $("#chk").click(function(){//开机的全选按钮
+            if($(this).prop("checked")==true){
+                $("#on input[type='checkbox']").prop("checked",true);
+            }else{
+                $("#on input[type='checkbox']").prop("checked",false);
+            }
+        });
+
+
+    }
+    chk();
+    /*按终端ID搜索*/
+    function searchById(){
+        var serialId=$('#byId').val();
+        $.post('web/machine/searchById?serialId='+serialId,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                $('#byId').val('');
+                //console.log(result.totalCount);
+                var tableHtml2=bt('t2:table',result);
+                $("#bchk").html("");
+                $("#bchk").html(tableHtml2);
+
+
+            }else{
+                alert('请求错误！');
+            }
+        });
+    }
+    function searchById1(){
+        var serialId=$('#byId1').val();
+        $.post('web/machine/searchById?serialId='+serialId,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                $('#byId1').val('');
+                var tableHtml3=bt('t3:table',result);
+                $("#stab").html("");
+                $("#stab").html(tableHtml3);
+
+            }else{
+                alert('请求错误！');
+            }
+        });
+    }
+
+   /* function CheckAll(obj) {
+        var form = document.getElementsByTagName("input");
+        for (var i = 0; i < form.length; i++) {
+            var e = form[i];
+            if (e.name == 'id' && e.type=="checkbox") {
+                e.checked = obj.checked;
+            }
+        }
+    }*/
+
+    function powerOn(){
+        $("#on input[type='checkbox']:checked").each(function(){
+            machineIds.push($(this).val());
+        });
+        
+        if(machineIds.length==0){
+            alert("请选择要开机的设备！");
+            return;
+        }
+        commentIds=machineIds.join("_");
+        if(confirm("确认要打开选中的设备吗？")){
+        	//alert(commentIds);
+            $.post("web/machine/powerOn?machineIds="+commentIds,null, function(result){
+                //alert(result);
+                var result = eval('('+result+')');
+                if(result.errcode==0){
+                    alert("操作成功！");
+                }else{
+                    alert('操作失败！错误原因：'+result.msg);
+                }
+            });
+        }
+    }
+    /*关机*/
+    function chk1() {
+        $("#chk1").click(function(){//关机的全选按钮
+            if($(this).prop("checked")==true){
+                $("#off input[type='checkbox']").prop("checked",true);
+            }else{
+                $("#off input[type='checkbox']").prop("checked",false);
+            }
+        });
+    }
+    chk1();
+
+    function powerOff(){
+
+        $("#off input[type='checkbox']:checked").each(function(){
+            machineIds.push($(this).val());
+        });
+        
+        if(machineIds.length==0){
+            alert("请选择要关机的设备！");
+            return;
+        }
+        commentIds=machineIds.join("_");
+        if(confirm("确认要关闭选中的设备吗？")){
+        	//alert(commentIds);
+            $.post("web/machine/powerOff?machineIds="+commentIds,null, function(result){
+                //alert(result);
+                var result = eval('('+result+')');
+                if(result.errcode==0){
+                    alert("操作成功！");
+                }else{
+                    alert('操作失败！错误原因：'+result.msg);
+                }
+            });
+        }
+    }
+		/*for(var i=0;i<result.content.length;i++){
+            	machineIds.push(result.content[i].theaterChain.iD);
+        	}
+            var commentIds=machineIds.join("_");*/
+
+	/*function getdataByStatus(pageNum,size,status){
+        $.post('web/machine/searchByStatus?pageNum='+pageNum+'&size='+size+'&status='+status,null,function(result){
+            var result = eval('('+result+')');
+            //console.log(result);
+            if(result.errcode==0){
+                console.log(result.content.length);
+                var tableHtml=bt('t:table',result);
+                $("#powerOn tbody").html("");
+                $("#powerOn tbody").html(tableHtml); 
+            }else{
+                alert('请求错误！');
+            }
+        })
+    }
+	getdataByStatus(1,10,0);*/
+
+    function checkLogin(){
+        if(userName != null){
+            $('#uname').html(userName);
+        }
+    }
+    checkLogin();
+
+    function loginOut(){
+        $.post("web/user/logout",null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                $('#uname').html('登录');
+                window.location.href = 'login.html';
+            }else{
+                alert("请求错误！");
+            }
+        })
+
+    }
+    
+    function byStatus1(pageNum,size,status){
+        $.post('web/machine/searchByStatus?pageNum='+pageNum+'&size='+size+'&status='+status,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                console.log(result.content.length);
+                var tableHtml1=bt('t1:table',result);
+                $("#stab").html("");
+                $("#stab").html(tableHtml1);
+            	var pagecode = getpagecode1(result.totalCount,result.pageNum,result.size,status);
+	            if(result.content.length==0){
+	            	$("#footer1").html("暂无数据！");
+	            	//$("#chk").attr("disabled","disabled");
+	            	$("#powerOff").attr("disabled","disabled");
+	            }else{
+	            	$("#footer1").html("");
+		            $("#footer1").html(pagecode);
+		            $("#count").text("总记录数："+result.totalCount);
+	            }
+			}else{
+				alert('请求错误！');
+				window.location.href = 'login.html';
+			}
+        });
+    }
+    
+    function byStatus(pageNum,size,status){
+        $.post('web/machine/searchByStatus?pageNum='+pageNum+'&size='+size+'&status='+status,null,function(result){
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                console.log(result.content.length);
+                var tableHtml=bt('t:table',result);
+                /*for(var i=0;i<result.content.length;i++){
+            	machineIds.push(result.content[i].theaterChain.iD);
+            	}
+            	commentIds=machineIds.join("_");*/
+                $("#bchk").html("");
+                $("#bchk").html(tableHtml);
+            	var pagecode = getpagecode(result.totalCount,result.pageNum,result.size,status);
+	            if(result.content.length==0){
+	            	$("#footer").html("暂无数据！");
+	            	//$("#chk").attr("disabled","disabled");
+	            	$("#powerOn").attr("disabled","disabled");
+	            }else{
+	            	$("#footer").html("");
+		            $("#footer").html(pagecode);
+		            $("#count").text("总记录数："+result.totalCount);
+	            }
+			}else{
+				alert('请求错误！');
+				window.location.href = 'login.html';
+			}
+        });
+    }
+    byStatus(1,10,1);
+	byStatus1(1,10,0);
+    function getpagecode(totalNum,currentPage,pageSize,status){
+        var totalPage=totalNum%pageSize==0?parseInt(totalNum/pageSize):parseInt(totalNum/pageSize)+1;
+        //		    	alert("totalpage"+totalPage+"currentPage"+currentPage);
+        var pageCode = "<ul class='pagination pagination-sm no-margin pull-right'>";
+        pageCode = pageCode + "<li><a pageNum='1' onclick='byStatus(1,"+pageSize+","+status+")'>首页</a></li>";
+        if(currentPage==1){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>上一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage-1)+"' onclick='byStatus("+(currentPage-1)+","+pageSize+","+status+")'>上一页</a></li>";
+        }
+        for(var i=currentPage-2;i<=currentPage+2;i++){
+            if(i<1||i>totalPage){
+                continue;
+            }
+            if(i==currentPage){
+                pageCode = pageCode + "<li class='active'><a href='#'>"+i+"</a></li>";
+            }else{
+                pageCode = pageCode + "<li><a pageNum='"+i+"' onclick='byStatus("+i+","+pageSize+","+status+")'>"+i+"</a></li>";
+            }
+        }
+        if(currentPage==totalPage){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>下一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage+1)+"' onclick='byStatus("+(currentPage+1)+","+pageSize+","+status+")'>下一页</a></li>";
+        }
+        pageCode = pageCode + "<li><a pageNum='"+totalPage+"' onclick='byStatus("+totalPage+","+pageSize+","+status+")'>尾页</a></li>";
+        pageCode = pageCode + "</ul>";
+        if(totalNum == 0)
+            pageCode="";
+        return pageCode
+}
+    function getpagecode1(totalNum,currentPage,pageSize,status){
+        var totalPage=totalNum%pageSize==0?parseInt(totalNum/pageSize):parseInt(totalNum/pageSize)+1;
+        //		    	alert("totalpage"+totalPage+"currentPage"+currentPage);
+        var pageCode = "<ul class='pagination pagination-sm no-margin pull-right'>";
+        pageCode = pageCode + "<li><a pageNum='1' onclick='byStatus1(1,"+pageSize+","+status+")'>首页</a></li>";
+        if(currentPage==1){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>上一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage-1)+"' onclick='byStatus1("+(currentPage-1)+","+pageSize+","+status+")'>上一页</a></li>";
+        }
+        for(var i=currentPage-2;i<=currentPage+2;i++){
+            if(i<1||i>totalPage){
+                continue;
+            }
+            if(i==currentPage){
+                pageCode = pageCode + "<li class='active'><a href='#'>"+i+"</a></li>";
+            }else{
+                pageCode = pageCode + "<li><a pageNum='"+i+"' onclick='byStatus1("+i+","+pageSize+","+status+")'>"+i+"</a></li>";
+            }
+        }
+        if(currentPage==totalPage){
+            pageCode = pageCode + "<li class='disabled'><a href='#'>下一页</a></li>";
+        }else{
+            pageCode = pageCode + "<li><a pageNum='"+(currentPage+1)+"' onclick='byStatus1("+(currentPage+1)+","+pageSize+","+status+")'>下一页</a></li>";
+        }
+        pageCode = pageCode + "<li><a pageNum='"+totalPage+"' onclick='byStatus1("+totalPage+","+pageSize+","+status+")'>尾页</a></li>";
+        pageCode = pageCode + "</ul>";
+        if(totalNum == 0)
+            pageCode="";
+        return pageCode
+}
+</script>
+</body>
+</html>

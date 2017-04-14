@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>消息群发</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/color.css">
+    <link href="css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    	hr{
+  		margin: 0;
+  	}
+        /*logo
+        .notification-menu{
+            float: right;
+        }
+        .notification-menu li{
+            float: right;
+        }
+        .logo-icon.text-center img{
+            width:36px;
+            border-radius: 2px;
+            vertical-align: middle;
+
+        }
+        .notification-menu .btn-default{
+            background-color:#424F63;
+            color:#65cea7;
+        }*/
+    </style>
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>
+
+        <!--<div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
+        </div>-->
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <!--<div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
+                </div>
+
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>-->
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>终端信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li ><a href="2.html">终端状态</a></li>
+                        <li><a href="2-2.html">地图显示</a></li>
+                        <li><a href="2-3.html">日志数据</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-dashboard"></i> <span>发送平台</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="5-1.html">当前任务</a></li>
+                        <li><a href="5-2.html">任务历史</a></li>
+                        <li><a href="5-3.html">可视化分析</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list nav-active"><a href=""><i class="fa fa-book"></i> <span>运维管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li class="active"><a href="3.html">消息群发</a></li>
+                        <li><a href="3-2.html">远程开机</a></li>
+                        <li><a href="3-3.html">终端升级</a></li>
+                        <li><a href="3-4.html">远程协助</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="4.html">用户管理</a></li>
+                        <li><a href="4-2.html">绑定管理</a></li>
+                        <li><a href="4-3.html">院线注册</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <!--search end-->
+			<!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a  href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            <span id="uname">登录</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul id="user" class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="4.html" disabled="true"><i class="fa fa-user"></i>用户管理</a></li>
+                            <!--<li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>-->
+                            <li><a disabled="true" onclick="loginOut();"><i class="fa fa-sign-out"></i>退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--notification menu end -->
+        </div>
+        <!-- header section end-->
+
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>消息群发</h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">运维管理</a>
+                </li>
+                <li class="active">消息群发</li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+<hr />
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel panel-info">
+                        <header class="panel-heading">消息群发</header>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <section class="panel">
+                                        <header class="panel-heading">微信消息群发</header>
+                                        <div class="panel-body">
+                                            <div class=" form">
+                                                <form class="cmxform form-horizontal adminex-form" id="commentForm" action="">
+                                                    <div class="form-group ">
+                                                        <label for="ctitle" class="control-label col-lg-2">标题：</label><!--name="name"-->
+                                                        <div class="col-lg-6">
+                                                            <input class=" form-control" id="ctitle"  type="text" required />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label for="ccontent" class="control-label col-lg-2">通知内容：</label><!--name="comment"-->
+                                                        <div class="col-lg-6">
+                                                            <textarea class="form-control " id="ccontent"  required></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label for="cname" class="control-label col-lg-2">通知人：</label><!--name="cname"-->
+                                                        <div class="col-lg-6">
+                                                            <input class="form-control " id="cname" type="text"  required/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group ">
+                                                        <label for="ccomment1" class="control-label col-lg-2">备注：</label><!--name="comment1"-->
+                                                        <div class="col-lg-6">
+                                                            <textarea class="form-control " id="ccomment1"  required></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-lg-offset-2 col-lg-10">
+                                                            <button class="btn btn-info" type="submit" onclick="msg();">发送</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/baiduTemplate.js"></script>
+<script type="text/javascript" src="js/jquery.cookies.js"></script>
+<script id="t1:table" type="text/html">
+    <@ console.log(content.length);@>
+    <@ for (var i = 0; i < content.length; i++){ @>
+    <option value="00"></option>
+    <option value=""><@=content[i].theaterChain@></option>
+    <@}@>
+
+</script>
+<script>
+    var bt=baidu.template;
+    var COOKIE_NAME = 'username';
+    var userName=$.cookie(COOKIE_NAME);
+    console.log(userName);
+
+    function msg(){
+    	var title=$('#ctitle').val();
+    	var body=$('#ccontent').val();
+    	var mark=$('#ccomment1').val();
+    	console.log(title);
+    	console.log(mark);
+        if($('#ctitle').val()==""){
+            alert("请输入标题！");
+            return false;
+        }
+        if($('#ccontent').val()==""){
+            alert("请输入通知内容！");
+            return false;
+        }
+        if($('#cname').val()==""){
+            alert("请输入通知人！");
+            return false;
+        }
+        if($('#ccomment1').val()==""){
+            alert("请输入备注！");
+            return false;
+        }
+        $.post('web/msg/send?title='+title+'&body='+body+'&mark='+mark,null,function(result){
+            alert(result);
+            var result = eval('('+result+')');
+            console.log(result);
+            if(result.errcode==0){
+                alert('发送成功！');
+            }else{
+                alert('请求错误！');
+				window.location.href = 'login.html';
+            }
+        });
+        //debugger;
+    }
+    
+
+    function checkLogin(){
+        if(userName != null){
+            $('#uname').html(userName);
+        }
+    }
+    checkLogin();
+
+    function loginOut(){
+        $.post("web/user/logout",null,function(data){
+            var result=eval('('+data+')');
+            if(result.errcode=="0"){
+                $('#uname').html('登录');
+                window.location.href = 'login.html';
+            }else{
+                alert("请求错误！");
+            }
+        })
+
+    }
+</script>
+</body>
+</html>
+

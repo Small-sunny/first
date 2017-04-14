@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="keywords" content="定军山,卫星,卫星接收机,管理平台,hycine.com" />
+    <meta name="description" content="定军山卫星接收机管理平台" />
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>定军山卫星接收机管理平台</title>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+    <style>
+        #sRand{
+            margin-left: 15px;
+            padding: 8px;
+            width:180px;
+        }
+        #login1{
+            font-size: 22px;
+            margin-top: 0;
+        }
+        #login1 span{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body class="login-body" onkeydown="keyLogin();">
+
+<div class="container">
+
+    <form id="form" class="form-signin" action="index.html">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">定军山数字电影拷贝传输服务平台</h1>
+            <img src="images/login-logo.png" alt=""/>
+        </div>
+        <div class="login-wrap">
+            <input id="userName" type="text" name="userName" class="form-control" placeholder="用户名" autofocus>
+            <input id="passwd" type="password" name="passwd" class="form-control" placeholder="密码">
+
+            <div class="row">
+                <input id="sRand" type="text" class="col-md-8" placeholder="验证码" width="60%">
+                <img class="col-md-4" align="middle" id="code" src="image.jsp" onClick="this.src='image.jsp?' + new Date().getTime();"/>
+            </div>
+
+            <button id="login1" class="btn btn-lg btn-login btn-block" type="button" onclick="login();">
+                <!--<i class="fa fa-check"></i>-->
+                <span>登录</span>
+            </button>
+
+            <!--<div class="registration">
+                Not a member yet?
+                <a class="" href="registration.html">
+                    Signup
+                </a>
+            </div>-->
+            <label class="checkbox">
+                <input type="checkbox" id="check" value="remember-me">记住我
+                <!--<span class="pull-right">
+                    <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
+
+                </span>-->
+            </label>
+
+        </div>
+
+        <!-- Modal -->
+        <!--<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Forgot Password ?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Enter your e-mail address below to reset your password.</p>
+                        <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                        <button class="btn btn-primary" type="button">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        --><!-- modal -->
+
+    </form>
+
+</div>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js">
+	
+</script>
+<script type="text/javascript">
+var COOKIE_NAME = 'username'; 
+//$.cookie(COOKIE_NAME, $("#userName").val() , { path: '/', expires: 10 }); 
+ if( $.cookie(COOKIE_NAME) ){ 
+   $("#userName").val( $.cookie(COOKIE_NAME) ); 
+ } 
+ /*$("#check").click(function(){ 
+   if(this.checked){ 
+     $.cookie(COOKIE_NAME, $("#userName").val() , { path: '/', expires: 10 }); 
+     //var date = new Date(); 
+     //date.setTime(date.getTime() + (3 * 24 * 60 * 60 * 1000)); //三天后的这个时候过期 
+     //$.cookie(COOKIE_NAME, $("#username").val(), { path: '/', expires: date }); 
+   }else{ 
+     $.cookie(COOKIE_NAME, null, { path: '/' }); //删除cookie 
+   } 
+ });*/
+ /*var n=$.cookie(COOKIE_NAME);
+ console.log(n);*/
+    function keyLogin(){
+        if (event.keyCode==13)  //回车键的键值为13
+            $("#login1").click(); //调用登录按钮的登录事件
+    }
+
+	function login(){
+    		var userName = $("#userName").val();
+    		var passwd = $("#passwd").val();
+            var sRand=$('#sRand').val();
+            if(userName == ""){
+                alert("用户名不能为空！");
+                return;
+            }
+            if(passwd == ""){
+                alert("密码不能为空！");
+                return;
+            }
+    		if(sRand==""){
+                alert("验证码不能为空！");
+                return;
+            }
+    		$.post("web/user/login",{"userName":userName,"passwd":passwd,"sRand":sRand},function(result){
+    		var result = eval('('+result+')');
+			if(result.errcode == 0){
+				$.cookie(COOKIE_NAME, $("#userName").val() , { path: '/', expires: 10 });
+    		    window.location="index.html?userName="+userName;
+	    	}else{
+	    			alert("登录失败！");
+	    		 }
+    		},"html");
+    	}
+</script>
+</body>
+</html>
